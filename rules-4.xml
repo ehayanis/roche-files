@@ -30,14 +30,14 @@
 			description="Flows names should match a naming convention"
 			severity="MINOR" type="code_smell">
 			count(//mule:mule/mule:flow)=0 or
-			matches(//mule:mule/mule:flow/@name, '^[a-zA-Z]([A-Za-z0-9\-\_])*:([A-Za-z0-9\-\_])*$')
+			matches(//mule:mule/mule:flow/@name, '^(([a-zA-Z]([A-Za-z0-9\-\_])*:)|([a-zA-Z]([A-Za-z0-9\-\_])*))([A-Za-z0-9\-\_])*$')
 		</rule>
 		<rule id="4"
 			name="SubFlows names should match a naming convention"
 			description="SubFlows names should match a naming convention"
 			severity="MINOR" type="code_smell">
 			count(//mule:mule/mule:sub-flow)=0 or
-			matches(//mule:mule/mule:sub-flow/@name, '^[a-zA-Z]([A-Za-z0-9\-\_])*:([A-Za-z0-9\-\_])*$')
+			matches(//mule:mule/mule:sub-flow/@name, '^(([a-zA-Z]([A-Za-z0-9\-\_])*:)|([a-zA-Z]([A-Za-z0-9\-\_])*))([A-Za-z0-9\-\_])*$')
 		</rule>
 		<rule id="6" name="Encryption key should not be logged"
 			description="Encryption key should not be logged" severity="MAJOR"
@@ -52,7 +52,7 @@
 			name="Credentials and resources should be managed with application properties"
 			description="Credentials and resources should be managed with application properties"
 			severity="MAJOR" applies="application" type="bug">
-			count(/mule/custom-properties-provider:config)>=1
+			count(//mule:mule/custom-properties-provider:config)>=1
 		</rule>
 		<rule id="2"
 			name="Mule Credentials Vault should not use a hardcoded encryption key"
